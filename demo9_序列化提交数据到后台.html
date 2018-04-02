@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+.load{width:500px;height: 300px;border: 1px solid #abcdef}
+</style>
+
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    	$('#button1').click(function(){
+	    		//var data={'username':$('#username').val(),'email':$('#email')}   这样写比较繁琐
+	    		
+	    		var data=$('#form').serialize();
+	    		//用序列化方法,一句代码,简单搞定
+	    		alert(data)
+
+
+	    		$.ajax({
+	    			url:'demo9_process.php',
+	    			type:'post',
+	    			data:data,
+	    			success:function(){
+	    				alert('提交成功')
+
+	    			}
+	    		})
+	    	})
+	    
+	    })
+	    
+
+	</script>
+</head>
+<body>
+	<form id="form">
+		用户名: <input type="text" name="username" id="username"> <br>
+		邮箱: <input type="text" name="email" id="email"> <br>
+		url地址: <input type="text" name="url" id="url"> <br>
+		QQ号: <input type="text" name="qq" id="qq"> <br>
+		sype: <input type="text" name="sype" id="sype"> <br>
+		<input type="submit" value="提交" id="button1">
+	</form>
+
+</body>
+</html>

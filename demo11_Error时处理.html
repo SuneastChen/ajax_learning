@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+.load{width:500px;height: 300px;border: 1px solid #abcdef}
+</style>
+
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    	$('#button1').click(function(){
+	    		
+
+	    		$.ajax({
+	    			url:'demo11_process.php?'+Math.random(),
+	    			type:'get',
+	    			timeout:2000,     //设置超时时间
+	    			success:function(data){
+	    				$('.load').html(data)
+	    			},     //此处的","千万不能少
+
+	    			//以下可以根据不同的错误作处理,用得较少
+	    			error:function(XMLHttpRequest,textStatus,errorThrown){
+	    				if(errorThrown=='Not Found'){
+	    					$('.load').html('你的请求地址不存在!');
+	    				}
+	    				if(textStatus=='timeout'){
+	    					$('.load').html('请求超时,请刷新页面重新操作!');
+	    				}
+	    			}
+
+	    			
+	    		})
+	    	})
+
+
+	    	//此句放在jquery外面也可以执行,经常用此方法,优先被调用
+	    	$(document).ajaxError(function(){
+	    		$('.load').html('ajax请求发生错误!')
+	    	})
+
+	    })
+	    	    
+
+	</script>
+</head>
+<body>
+    <input type="button" value="加载" id="button1">
+    <div class="load" onclick="">
+		
+	</div>
+
+</body>
+</html>

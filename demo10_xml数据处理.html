@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+.load{width:500px;height: 300px;border: 1px solid #abcdef}
+</style>
+
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    	$('#button1').click(function(){
+	    		
+
+	    		$.ajax({
+	    			url:'demo10_process.php?'+Math.random(),
+	    			type:'get',
+	    			dataType:'xml',
+	    			success:function(xml){
+	    				alert(xml);  //是个文档对象
+	    				$(xml).find('title').each(function(){  //列表对象.each(fun)  遍历执行
+	    					alert($(this).text());   //操作xml对象时,html()不可用
+	    					$('.load').append($(this).text()+'<br>')
+	    				});    
+	    			}
+	    			
+
+	    			
+	    		})
+	    	})
+	    })
+	    	    
+
+	</script>
+</head>
+<body>
+    <input type="button" value="加载" id="button1">
+    <div class="load">
+		
+	</div>
+
+</body>
+</html>

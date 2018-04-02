@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+.load{width:500px;height: 300px;border: 1px solid #abcdef}
+</style>
+
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    	$('#button1').click(function(){
+	    		//用get方法
+	    		$.get('test.txt?data='+Math.random(),function(data){
+	    			alert(data)
+	    			$('.load').html(data)
+	    		})
+	    	})
+
+
+	    
+	    })
+	    
+
+	</script>
+</head>
+<body>
+	<input type="button" value="加载" id="button1">
+	<div class="load"></div>
+
+</body>
+</html>

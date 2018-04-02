@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+.load{width:500px;height: 300px;border: 1px solid #abcdef}
+</style>
+
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    	$('#button1').bind('click',function(){
+	    		$.ajax({
+	    			url:'demo7_process.php?'+Math.random(),
+	    			type:'get',
+	    			success:function(data){
+	    				alert(data)    //返回php返回的字符串
+	    				alert(typeof data)    //data为字符串类型
+
+
+	    				data_list=eval(data)   //eval()将字符串转换成js所认识的代码,即成为字典对象
+	    				alert(typeof data_list)
+	    				alert(data_list[0]['姓名'])  //可以正常使用
+
+	    				var ul=$('.load>ul')   //子选择器
+	    				for(var i=0;i<data_list.length;i++){
+	    					ul.append("<li>"+data_list[i]['姓名']+"</li>")
+
+	    				}
+
+	    			
+	    			}
+	    		})
+	    	})
+
+
+	    
+	    })
+	    
+
+	</script>
+</head>
+<body>
+	<input type="button" value="加载" id="button1">
+	<div class="load">
+		<ul></ul>
+	</div>
+
+</body>
+</html>

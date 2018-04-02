@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+
+</style>
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    		$('input[type=button]').click(function(){
+	    			// 发送给服务器的数据需为json格式
+		    	var senddata={'username':$('#username').val()}
+		    	var url='demo4_process.php'
+		    	//ajax方法发送数据,请求数据
+		    	$.ajax({url:url,
+		    		type:'get',
+		    		data:senddata,
+		    		success:function(data){
+		    			if (data) {$('div').html('用户名可以注册!')}
+		    		    else{$('div').html('用户名不可以设为admin!')}
+		    		}
+		    		
+		        })
+		        })    
+	    })
+	    
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<input type="text" name="username" id="username">
+	<input type="button" value="检验" >
+	<div></div>
+
+</body>
+</html>

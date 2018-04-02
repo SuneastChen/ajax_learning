@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+
+</style>
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    		$('input[type=button]').click(function(){
+	    			// 发送给服务器的数据需为json格式
+		    	var send={'username':$('#username').val()}
+		    	$('div').load('demo2_process.php',send,function(data){
+		    		alert(data);   //data为服务器返回的数据
+		    	})
+		        })    
+	    })
+	    
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<input type="text" name="username" id="username">
+	<input type="button" value="检验" >
+	<div></div>
+
+</body>
+</html>

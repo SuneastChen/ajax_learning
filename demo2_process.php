@@ -1,0 +1,9 @@
+<?php
+header('Content-type:text/html;charset=utf-8');
+
+$username=$_POST['username'];
+if($username=='admin'){
+	echo "用户名不能为admin";
+}else{
+	echo "用户名可以注册";
+}

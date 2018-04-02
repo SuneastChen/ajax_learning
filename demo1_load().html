@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+.load{width:500px;height: 300px;border: 1px solid #abcdef}
+</style>
+
+
+	<script src='./jquery.js' type='text/javascript' charset='utf-8'></script>
+
+	<script type='text/javascript'>
+	    $(function(){
+	    	$('#button1').bind('click',function(){
+	    		//$('.load').load('test.txt?date='+Math.random());
+	    		                 //为了去除缓存影响,加载最新的
+	    		                 
+	    		 //不仅可以加载txt文档,也可以加载html
+	    		//$('.load').load('test.html?date='+Math.random());
+
+
+	    		//如果只要加载id='test2'的ul,则
+	    		$('.load').load('test.html #test2');
+	    		// $('.load').load('test.html?date='+Math.random()+' #test2');
+	    	})
+
+
+	    
+	    })
+	    
+
+	</script>
+</head>
+<body>
+	<input type="button" value="加载" id="button1">
+	<div class="load"></div>
+
+</body>
+</html>
